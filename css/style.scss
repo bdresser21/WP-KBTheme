@@ -1,11 +1,27 @@
+/*Theme Name: Knowledge Base
+Author: Brie Brie
+*/
+
 /*Color Vars */
 $dark-purple: #232A5C;
 $medium-purple: #404996 ;
 $light-purple: #d3d6ff ;
 
 $dark-blue: rgb(4, 25, 87);
-$medium-blue: rgb(14, 56, 194);
+$medium-blue: rgb(12, 50, 175);
 $light-blue: rgb(210, 221, 255);
+
+/*-------------------------------------------------------------------
+>>>>>>>>>>>>TABLE OF CONTENTS:
+---------------------------------------------------------------------
+
+Navigation Bar
+Front Page (index.html)
+KB Article Template (article.html)
+Media Queries
+
+------------------------------------------------------------------*/
+
 
 * {
     margin: 0 ;
@@ -16,6 +32,10 @@ $light-blue: rgb(210, 221, 255);
 body {
     font-family: 'Open Sans', sans-serif ;
     color: #333 ;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold ;
 }
 
 .btn {
@@ -31,6 +51,7 @@ body {
     }
 }
 
+/*-------------------------Navigation Bar------------------------------------*/
 .navbar {
     background-color: $medium-blue;
 
@@ -59,6 +80,8 @@ body {
     
 }
 
+/* -------------------------------------------------------------------------*/
+
 /*header {
     
     background-color: #D4E4FF;
@@ -68,6 +91,9 @@ body {
         margin: 0 auto ;
     }
 }*/
+
+
+/*------------------------FRONT PAGE ---------------------------------*/
 
 .jumbotron {
     background-color: $light-blue;
@@ -101,11 +127,46 @@ body {
     }
 }
 
+/*------------------------------------------------------------------------*/
+
+
+
+/*----------------------------ARTCILE TEMPLATE-----------------------------*/
+
+.article-content {
+    
+    
+    #article-categories-list {
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color: $dark-blue ;
+
+            &:hover {
+                color: rgba(41, 101, 230, 0.89) ;
+                text-decoration: none;
+            }
+        }
+
+    }
+
+    .card {
+        border: 3px solid #a3a3a3;
+    }
 
 
 
 
-/*Media Queries*/
+}
+
+/*-------------------------------------------------------------------------*/
+
+
+
+
+/*--------------------------Media Queries----------------------------------*/
 
 $breakpoint-small: 576px ;
 $breakpoint-medium: 768px ;

@@ -13,7 +13,7 @@
 <body class = "bg-light">
     <nav class = "p-1 navbar navbar-dark navbar-expand-lg navbar-default" role = "navigation">
         <div class = "container">
-            <a class = "navbar-brand" href = "#">Brand</a></h1>
+            <a class = "navbar-brand" href = "index.html">Brand</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -27,25 +27,28 @@
         </div>
     </nav>
         
-    <section id = "content-area" class = "container pt-4 pb-4 ">
+    <section id = "content-area" class = "article-content container pt-4 pb-4 ">
         <!--Left column on large screens ; below article on small screens-->
         <div id = "both-columns" class = "row pt-3 pb-3">
-            <section id = "category-list" class = "col-md-3">
-                
-                <h6>Categories</h6>
+            <section id = "article-categories-list" class = "col-md-3">
+                <form class="form-inline">
+                    <div class="input-group mb-4">
+                        <input type="search" class="form-control" placeholder = "Search" aria-label="Search">
+                        <div class="input-group-append">
+                          <span class = "input-group-text btn" role = "button type = "submit"><i class="fas fa-search"></i></span>
+                        </div>
+                      </div>
+                </form> 
+                <h5 class = "mb-5 mt-3">Categories</h5>
                 <ul>
-                    <li><a href = "#">Browse By Product</a></li>
-                    <li><a href = "#">FAQs</a></li>
-                    <li><a href = "#">Admin Concerns</a></li>
-                    <li><a href = "#">Software Issues</a></li>
-                    <li><a href = "#">Hardware Issues</a></li>
+                    <li class = "pb-4"><a href = "#">Browse By Product</a></li>
+                    <li class = "pb-4"><a href = "#">FAQs</a></li>
+                    <li class = "pb-4"><a href = "#">Admin Concerns</a></li>
+                    <li class = "pb-4"><a href = "#">Software Issues</a></li>
+                    <li class = "pb-4"><a href = "#">Hardware Issues</a></li>
                     <li><a href = "#">Popular Articles</a></li>
                 </ul>
 
-                <form class="form-inline justify-content-center pt-3">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
-                </form> 
             </section>
 
             <!--Right column on large screens ; ABOVE category column on small screens-->
@@ -93,12 +96,11 @@
                     </div>
                 </div>
                 <div id = "search-again" class="col-sm-12 text-center pb-5 pt-5">
-                    <h4 class = "pt-5">Looking for something else?</h4>
+                    <h2 class = "pt-5">Looking for something else?</h2>
                     <form class="form-inline justify-content-center pt-3">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn my-2 my-sm-0" type="submit">Search</button>
-                    </form> 
-                    
+                    </form>   
                 </div>
             </article>
                
