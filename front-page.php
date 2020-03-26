@@ -3,7 +3,7 @@
         <div class="container text-center p-5">
             <h1>How can we help?</h1>
             
-            <form class="form-inline justify-content-center pt-3">
+            <form role = "search" class="form-inline justify-content-center pt-3">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn my-2 my-sm-0" type="submit">Search</button>
             </form> 
