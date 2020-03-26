@@ -8,6 +8,8 @@
     <link rel = "stylesheet" href = "<?php echo get_bloginfo('template_directory'); ?>/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet"> 
 
+    <script src="https://kit.fontawesome.com/15e2fd0502.js" crossorigin="anonymous"></script> 
+
     <!--<title>Knowledge Base</title>NOW INCLUDED IN FUNCTIONS.php-->
 
     <?php wp_head();?>
@@ -15,7 +17,8 @@
 <body class = "bg-light">
     <nav class = "p-1 navbar navbar-dark navbar-expand-lg navbar-default" role = "navigation">
         <div class = "container">
-            <a class = "navbar-brand" href = "#">Brand</a>
+            
+            <a class = "navbar-brand" href = "<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
