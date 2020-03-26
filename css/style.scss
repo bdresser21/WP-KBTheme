@@ -180,6 +180,20 @@ $breakpoint-large: 960px ;
     h4 {
         text-align: center;
     }
+
+    /*----------Article Template----------*/
+    .article-content {
+
+        #article-categories-list {
+            h5, ul {
+                text-align: center ;
+            }
+
+            ul {
+                padding-bottom: 1.5rem;
+            }
+        }
+    }
 }
 
 @media (max-width: $breakpoint-medium) {
