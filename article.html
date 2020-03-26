@@ -28,16 +28,25 @@
     </nav>
         
     <section id = "content-area" class = "container pt-4 pb-4 ">
-            <!--Left column on large screens ; below article on small screens-->
-            <div class = "row pt-3 pb-3">
-                <div class = "col-md-3">
-                    <h5>Categories</h5>
-                    <a href = "#">Browse By Product</a>
-                    <a href = "#">FAQs</a>
-                    <a href = "#">Administrative</a>
-                    <a href = "#">Software Issues</a>
-                    <a href = "#">Hardware Issues</a>
-                </div>
+        <!--Left column on large screens ; below article on small screens-->
+        <div id = "both-columns" class = "row pt-3 pb-3">
+            <section id = "category-list" class = "col-md-3">
+                
+                <h6>Categories</h6>
+                <ul>
+                    <li><a href = "#">Browse By Product</a></li>
+                    <li><a href = "#">FAQs</a></li>
+                    <li><a href = "#">Admin Concerns</a></li>
+                    <li><a href = "#">Software Issues</a></li>
+                    <li><a href = "#">Hardware Issues</a></li>
+                    <li><a href = "#">Popular Articles</a></li>
+                </ul>
+
+                <form class="form-inline justify-content-center pt-3">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                </form> 
+            </section>
 
             <!--Right column on large screens ; ABOVE category column on small screens-->
             <article id = "kb-article" class="col-md-9">  
@@ -73,28 +82,28 @@
 
                     </div>
                 </div>
-                
+                    
                 <p class = "rating text-center pt-5">Did this article answer your question?</p>
-                        <p class = "text-center"><a class = "pl-2" href = "#"><i class="far fa-smile fa-lg"></i></a><a href = "#"><i class="far fa-frown fa-lg pl-3"></i></a></p>
+                    <p class = "text-center"><a class = "pl-2" href = "#"><i class="far fa-smile fa-lg"></i></a><a href = "#"><i class="far fa-frown fa-lg pl-3"></i></a></p>
+                
                 <div class="card mt-5 p-5">
                     <div class="card-body">
-                      <h6 class="card-title mb-4">Related Articles</h6>
-                      <a href="#" class="card-link">Article Title Goes Here</a>
+                    <h6 class="card-title mb-4">Related Articles</h6>
+                    <a href="#" class="card-link">Article Title Goes Here</a>
                     </div>
-                  </div>
-            </div> 
-        </div>
-      
-            
-            <div id = "category-list" class="col-sm-12 text-center pb-5 pt-5">
-                <h4 class = "pt-5">Looking for something else?</h4>
-                <form class="form-inline justify-content-center pt-3">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
-                </form> 
-                
-            </div>
-        </div>
+                </div>
+                <div id = "search-again" class="col-sm-12 text-center pb-5 pt-5">
+                    <h4 class = "pt-5">Looking for something else?</h4>
+                    <form class="form-inline justify-content-center pt-3">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                    </form> 
+                    
+                </div>
+            </article>
+               
+        </div> 
+        
         
     </section>
 
