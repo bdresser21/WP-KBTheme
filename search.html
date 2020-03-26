@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/15e2fd0502.js" crossorigin="anonymous"></script> 
+
+    <title>Knowledge Base</title>
+</head>
+<body class = "bg-light">
+    <nav class = "p-1 navbar navbar-dark navbar-expand-lg navbar-default" role = "navigation">
+        <div class = "container">
+            <a class = "navbar-brand" href = "index.html">Brand</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class = "menu navbar-nav nav text-center p-4">
+                    <li class = "nav-item"><a class = "nav-link" href = "#">Help Desk<span class="sr-only">(current)</span></a></li>
+                    <li class = "nav-item"><a class = "nav-link" href = "#">Products</a></li>
+                    <li class = "nav-item"><a class = "nav-link" href = "#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        
+    <section id = "content-area" class = "article-content container pt-4 pb-4 ">
+        <!--Left column on large screens ; one col on small screens-->
+        <div id = "both-columns" class = "row pt-3 pb-3">
+            <section id = "article-categories-list" class = "col-md-3">
+                <form class="form-inline">
+                    <div class="input-group mb-4">
+                        <input type="search" class="form-control" placeholder = "Search" aria-label="Search">
+                        <div class="input-group-append">
+                          <span class = "input-group-text btn" role = "button type = "submit"><i class="fas fa-search"></i></span>
+                        </div>
+                      </div>
+                </form> 
+                <h5 class = "mb-5 mt-3">Categories</h5>
+                <ul>
+                    <li class = "pb-4"><a href = "#">Browse By Product</a></li>
+                    <li class = "pb-4"><a href = "#">FAQs</a></li>
+                    <li class = "pb-4"><a href = "#">Admin Concerns</a></li>
+                    <li class = "pb-4"><a href = "#">Software Issues</a></li>
+                    <li class = "pb-4"><a href = "#">Hardware Issues</a></li>
+                    <li><a href = "#">Popular Articles</a></li>
+                </ul>
+
+            </section>
+
+            <!--Right column on large screens ; 1 column on small screens-->
+            <article id = "search-results" class="col-md-9">  
+                <div id = "search-content" class="card p-5">
+                    <div class="card-body">
+                        <h2 class="card-title pb-3">Here's what we found for [term]</h2>
+                        
+                        <div class = "result mt-4 pb-3">
+                            <h5><a href = "#">Hello there</a></h5>
+                            <p class = "description">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, hic.</p>
+                            
+                        </div>
+                        <div class = "result mt-4 pb-3">
+                            <h5><a href = "#">Hello there</a></h5>
+                            <p class = "description">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, hic.</p>
+                            
+                        </div>
+                        <div class = "result mt-4 pb-5">
+                            <h5><a href = "#">Hello there</a></h5>
+                            <p class = "description">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, hic.</p>
+                            
+                        </div>
+                    </div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </article>
+               
+        </div> 
+        
+        
+    </section>
+
+    <footer class = "footer container text-center pb-5">
+      <p>&copy; Knowledge Base. Powered by Awesome KB. </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+</body>
+</html>
