@@ -11,7 +11,11 @@
     <ul>
         
         <?php 
-            $custom_cats = get_terms();
+            $custom_cats = get_terms([
+                'taxonomy' => 'kb-category',
+                'hide_empty' => false,
+            ]);
+
             $taxonomy_exist = taxonomy_exists('kb-category');
             //apply_filters( 'list_terms_exclusions', 'top-nav, Uncategorized');
             //within array object, loop through arr & only grab array items with [taxonomy] => kb-category;
@@ -20,7 +24,9 @@
             
             foreach ($custom_cats as $custom_cat_value) {
                 if($taxonomy_exist){
-                    echo "<li class = 'pb-4'><a href = '#'>".$custom_cat_value->name."</a></li>";
+                    echo "<li class = 'pb-4'><a href = ".get_permalink().">".$custom_cat_value->name."</a></li>";
+                }else {
+                    array_pop($custom_cats[6]);
                 }
             }
             ?>
