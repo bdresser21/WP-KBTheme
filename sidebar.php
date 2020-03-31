@@ -9,13 +9,41 @@
     </form> 
     <h5 class = "mb-5 mt-3">Categories</h5>
     <ul>
-        <?php wp_get_archives( 'type=monthly'); ?>
+        
+        <?php 
+            $custom_cats = get_terms();
+            $taxonomy_exist = taxonomy_exists('kb-category');
+            //apply_filters( 'list_terms_exclusions', 'top-nav, Uncategorized');
+            //within array object, loop through arr & only grab array items with [taxonomy] => kb-category;
+            //then, grab [name] ;
+            //display [name]
+            
+            foreach ($custom_cats as $custom_cat_value) {
+                if($taxonomy_exist){
+                    echo "<li class = 'pb-4'><a href = '#'>".$custom_cat_value->name."</a></li>";
+                }
+            }
+            ?>
     <!--<li class = "pb-4"><a href = "#">Browse By Product</a></li>
         <li class = "pb-4"><a href = "#">FAQs</a></li>
         <li class = "pb-4"><a href = "#">Admin Concerns</a></li>
         <li class = "pb-4"><a href = "#">Software Issues</a></li>
         <li class = "pb-4"><a href = "#">Hardware Issues</a></li>
         <li><a href = "#">Popular Articles</a></li>-->
+        <?php
+        /*$categories =  get_categories('child_of=31');  
+        foreach  ($categories as $category) {
+            //Display the sub category information using $category values like $category->cat_name
+            echo '<h2>'.$category->name.'</h2>';
+            echo '<ul>';
+
+            foreach (get_posts('cat='.$category->term_id) as $post) {
+                setup_postdata( $post );
+                echo '<li><a href="'.get_permalink($post->ID).'">'.get_the_title().'</a></li>';   
+            }  
+            echo '</ul>';
+        }*/
+        ?>
     </ul>
 
 </section>
