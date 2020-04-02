@@ -1,7 +1,7 @@
 
 
 <?php
-add_theme_support( 'title-tag' );
+
 
 /*if(is_page('home')){
 	get_template_part('front-page', get_post_format());
@@ -30,6 +30,125 @@ function comicpress_copyright() {
 	return $output;
 }
 
+//displays list of all custom post titles/links
+function display_all_custom_posts(){
+	//dec args for custom post types which we'll be sending through custom query
+	$args = array(
+		'post_type'=> 'kb-article',
+		'orderby' => 'menu-order',
+		'order'=> 'ASC'
+	);
+	
+	$custom_query = new WP_Query($args);
+
+	//loop through all custom posts and display
+	while ($custom_query->have_posts()) : $custom_query->the_post() ;
+
+	?>
+	<li class = "article-item pt-4 pb-4"><a href = "<?php the_permalink();?>"><?php the_title();?></a></li>
+	<?php endwhile; 
+}
+
+
+//Loops through Categories and Display Posts as list within
+
+function display_all_posts_by_category(){
+
+
+   $post_type = 'kb-article';
+   
+   // Get all the taxonomies for this post type
+   $taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );
+   
+   foreach( $taxonomies as $taxonomy ) :
+   
+	   // Gets every "category" (term) in this taxonomy to get the respective posts
+	   $terms = get_terms( $taxonomy );
+   
+	   foreach( $terms as $term ) : ?>
+
+		   <?php
+		   $args = array(
+				   'post_type' => $post_type,
+				   'posts_per_page' => -1,  //show all posts
+				   'tax_query' => array(
+					   array(
+						   'taxonomy' => $taxonomy,
+						   'field' => 'slug',
+						   'terms' => $term->slug,
+					   )
+				   )
+   
+			   );
+		   $posts = new WP_Query($args);
+   
+		   if( $posts->have_posts() ): ?> 
+		   
+		   <h6><?php echo $term->name; ?></h6>
+		   
+		   <?php while( $posts->have_posts() ) : $posts->the_post(); ?>
+   
+					   <?php /*if(has_post_thumbnail()) { ?>
+							   <?php the_post_thumbnail(); ?>
+					   <?php }
+					   // no post image so show a default img 
+					   else { ?>
+						   <img src="<?php bloginfo('template_url'); ?>/assets/img/default-img.png" alt="<?php echo get_the_title(); ?>" title="<?php echo get_the_title(); ?>" width="110" height="110" />
+					   <?php } */?>
+   
+					   <li class = "article-item pt-4 pb-4">
+						   <a href = "<?php  the_permalink(); ?>"><?php  echo get_the_title(); ?></a>
+					   </li>
+				   
+   
+		   <?php endwhile; endif; ?>
+   
+	   <?php endforeach;?>
+   
+   <?php endforeach; 
+					   
+}   
+
+
+//display list of child pages 
+function wpb_list_child_pages() { 
+
+    global $post; 
+
+    if ( is_page() && $post->post_parent )    
+        $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' .$post->post_parent . '&echo=0' );
+    else
+        $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
+
+    if ( $childpages ) {    
+        $string = '<ul>' . $childpages . '</ul>';
+    }
+
+    return $string;
+}
+
+add_shortcode('wpb_childpages', 'wpb_list_child_pages');
+
+//Theme Options
+add_theme_support('title-tag');
+add_theme_support('menus');
+
+
+
+//Menus
+register_nav_menus(
+
+		array(
+
+			'top-menu' => 'Top Nav Location',
+			'mobile-menu' => 'Mobile Menu Location',
+		)
+
+);
+
+
+
+//Custom Posts
 if ( ! function_exists( 'kb_article' ) ) {
 
 	// Register Custom Post Type
