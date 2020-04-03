@@ -16,37 +16,123 @@ get_header(); ?>
                     <div class="card-body">
                         <h3 class="card-title"><?php the_title();?></h3>
                         <ul class = "article-category-slug-list mt-3">
-                            <?php
-                                //if(is_page('FAQs')){
-                                    //display custom posts assigned to this category only
+            <?php
+                $post_type = 'kb-article';
 
-                                //}
-                                //dec args for custom post types which we'll be sending through custom query
-                                $args = array(
-                                    'post_type'=> 'kb-article',
-                                    'orderby' => 'menu-order',
-                                    'order'=> 'ASC',
+                // Get all the taxonomies for this post type
+                if( is_page($page = 'Administrative Concerns') )  :
+                    
+                    $args = array(
+                        'post_type' => $post_type,
+                        'posts_per_page' => -1,  //show all posts
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'kb-category',
+                                'field' => 'term_id',
+                                'terms' => 9
+                            ),
+                        ),
+        
+                    );
+                endif;
+                
+                if( is_page($page = 'Browse by Product') )  :
+                    $args = array(
+                            'post_type' => $post_type,
+                            'posts_per_page' => -1,  //show all posts
+                            'tax_query' => array(
+                                array(
                                     'taxonomy' => 'kb-category',
-                                    
-                                    
-                                );
-                                
-                                $custom_query = new WP_Query($args);
+                                    'field' => 'term_id',
+                                    'terms' => 3
+                                ),
+                            ),
+            
+                        );
+                endif;
+                if( is_page($page = 'FAQs') )  :
+                        $args = array(
+                                'post_type' => $post_type,
+                                'posts_per_page' => -1,  //show all posts
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'kb-category',
+                                        'field' => 'term_id',
+                                        'terms' => 2
+                                    ),
+                                ),
+                
+                            );
+                endif;
+                if( is_page($page = 'Hardware Issues') )  :
+                    $args = array(
+                            'post_type' => $post_type,
+                            'posts_per_page' => -1,  //show all posts
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'kb-category',
+                                    'field' => 'term_id',
+                                    'terms' => 7
+                                ),
+                            ),
+            
+                        );
+                endif;
+                if( is_page($page = 'Popular Articles') )  :
+                    $args = array(
+                            'post_type' => $post_type,
+                            'posts_per_page' => -1,  //show all posts
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'kb-category',
+                                    'field' => 'term_id',
+                                    'terms' => 8
+                                ),
+                            ),
+            
+                        );
+                endif;
+                if( is_page($page = 'Software Issues') )  :
+                    $args = array(
+                            'post_type' => $post_type,
+                            'posts_per_page' => -1,  //show all posts
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'kb-category',
+                                    'field' => 'term_id',
+                                    'terms' => 6
+                                ),
+                            ),
+            
+                        );
+                endif;
 
-                                //loop through all custom posts and display
-                                while ($custom_query->have_posts()) : $custom_query->the_post() ;
+            $posts = new WP_Query($args);
 
-                            ?>
-                            <li class = "article-item pt-4 pb-4"><a href = "<?php the_permalink();?>"><?php the_title();?></a></li>
-                            <?php endwhile; ?>
+                //echo '<pre>';
+                //print_r($posts);
+                //echo '</pre>';
+
+            if( $posts->have_posts() ): ?> 
+            
+            
+            <?php while( $posts->have_posts() ) : $posts->the_post(); ?>
+    
+                        <li class = "article-item pt-4 pb-4">
+                            <a href = "<?php  the_permalink(); ?>"><?php  echo get_the_title(); ?></a>
+                        </li>
+                    
+    
+            <?php endwhile; endif; ?>
+                                        
                         </ul>
                         
                         
                         <?php 
                         
-                        echo '<pre>';
-                        print_r($all_post_types);
-                        echo '</pre>';
+                        //echo '<pre>';
+                        //print_r($posts);
+                        //echo '</pre>';
                         ?>
                         
                         
