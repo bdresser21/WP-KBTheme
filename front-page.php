@@ -18,60 +18,60 @@
         
         <section class = "category-list">
             <div class="row text-center">
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-                  <div class="card p-4">
-                    <div class="card-body">
-                      <h5 class="card-title">FAQs</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-                  <div class="card p-4">
-                    <div class="card-body">
-                      <h5 class="card-title">Account</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-                    <div class="card p-4">
-                      <div class="card-body">
-                        <h5 class="card-title">Browse by Product</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                
+                <?php 
+                  //store terms assoc w/ kb category in var
+                  $custom_cats = get_terms([
+                    'taxonomy' => 'kb-category',
+                    'hide_empty' => false,
+                  ]);
+
+
+                  //Loop that Creates a new card for each custom post category (title, desc, button w/ article count)
+                  foreach( $custom_cats as $custom_cat_value ) : ?>
+                      <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
+                        <div class="card p-4">
+                          <div class="card-body">
+                            <h5 class="card-title"><?php echo $custom_cat_value->name ; ?></h5>
+                            <p class="card-text"><?php echo $custom_cat_value->description; ?></p>
+                            <a href="
+
+                            <?php
+                                if($custom_cat_value->name === "Administrative") :
+                                  echo get_permalink( get_page_by_title( 'Administrative' ) ) ;
+                              endif ;
+                              if($custom_cat_value->name === "Browse by Product") :
+                                  echo get_permalink( get_page_by_title( 'Browse by Product' ) ) ;
+                              endif ;
+                              if($custom_cat_value->name === "FAQs") :
+                                  echo get_permalink( get_page_by_title( 'FAQs' ) ) ;
+                              endif ;
+                              if($custom_cat_value->name === "Hardware Issues") :
+                                  echo get_permalink( get_page_by_title( 'Hardware Issues' ) ) ;
+                              endif ;
+                              if($custom_cat_value->name === "Popular Articles") :
+                                  echo get_permalink( get_page_by_title( 'Popular Articles' ) ) ;
+                              endif ;
+                              if($custom_cat_value->name === "Software Issues") :
+                                  echo get_permalink( get_page_by_title( 'Software Issues' ) ) ;
+                              endif ;
+                            ; ?>
+                            
+                            
+                            " class="btn btn-primary"><?php echo $custom_cat_value->count;?> Articles</a>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-                    <div class="card p-4">
-                      <div class="card-body">
-                        <h5 class="card-title">Software Issues</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-                    <div class="card p-4">
-                      <div class="card-body">
-                        <h5 class="card-title">Hardware Issues</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-                    <div class="card p-4">
-                      <div class="card-body">
-                        <h5 class="card-title">Popular Articles</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                  </div>
+                  <?php endforeach;?>
+                 
+
+
+
+
+
+
+
+           
               </div>
         </section>
     </section>
