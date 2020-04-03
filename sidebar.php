@@ -11,45 +11,58 @@
     <ul>
         
         <?php 
+            
+
             $custom_cats = get_terms([
                 'taxonomy' => 'kb-category',
                 'hide_empty' => false,
             ]);
 
-            $taxonomy_exist = taxonomy_exists('kb-category');
-            //apply_filters( 'list_terms_exclusions', 'top-nav, Uncategorized');
+            $cat_pages = get_pages('Administrative', 'FAQs');
+
+                
+            
+            //echo '<pre>';
+           // echo print_r($cat_pages);
+            //echo '</pre>';
             //within array object, loop through arr & only grab array items with [taxonomy] => kb-category;
             //then, grab [name] ;
             //display [name]
             
-            foreach ($custom_cats as $custom_cat_value) {
-                if($taxonomy_exist){
-                    echo "<li class = 'pb-4'><a href = ".get_permalink().">".$custom_cat_value->name."</a></li>";
-                }else {
-                    array_pop($custom_cats[6]);
-                }
-            }
-            ?>
-    <!--<li class = "pb-4"><a href = "#">Browse By Product</a></li>
-        <li class = "pb-4"><a href = "#">FAQs</a></li>
-        <li class = "pb-4"><a href = "#">Admin Concerns</a></li>
-        <li class = "pb-4"><a href = "#">Software Issues</a></li>
-        <li class = "pb-4"><a href = "#">Hardware Issues</a></li>
-        <li><a href = "#">Popular Articles</a></li>-->
-        <?php
-        /*$categories =  get_categories('child_of=31');  
-        foreach  ($categories as $category) {
-            //Display the sub category information using $category values like $category->cat_name
-            echo '<h2>'.$category->name.'</h2>';
-            echo '<ul>';
+?>
+            <?php //  display all links to child pages labelled Cateory ?>
+                <a href = "<?php  //the_permalink(); ?>"><?php  echo wpb_list_child_pages('Categories'); ?></a>
 
-            foreach (get_posts('cat='.$category->term_id) as $post) {
-                setup_postdata( $post );
-                echo '<li><a href="'.get_permalink($post->ID).'">'.get_the_title().'</a></li>';   
-            }  
-            echo '</ul>';
-        }*/
-        ?>
+            <?php //for custom posts, make sure cat page link matches cat title
+                
+                if( is_single() ) :
+                    foreach( $custom_cats as $custom_cat_value ) : ?>
+                        <li class = 'pb-4'><a href = "
+                            <?php 
+                            if($custom_cat_value->name === "Administrative") :
+                                echo get_permalink( get_page_by_title( 'Administrative' ) ) ;
+                            endif ;
+                            if($custom_cat_value->name === "Browse by Product") :
+                                echo get_permalink( get_page_by_title( 'Browse by Product' ) ) ;
+                            endif ;
+                            if($custom_cat_value->name === "FAQs") :
+                                echo get_permalink( get_page_by_title( 'FAQs' ) ) ;
+                            endif ;
+                            if($custom_cat_value->name === "Hardware Issues") :
+                                echo get_permalink( get_page_by_title( 'Hardware Issues' ) ) ;
+                            endif ;
+                            if($custom_cat_value->name === "Popular Articles") :
+                                echo get_permalink( get_page_by_title( 'Popular Articles' ) ) ;
+                            endif ;
+                            if($custom_cat_value->name === "Software Issues") :
+                                echo get_permalink( get_page_by_title( 'Software Issues' ) ) ;
+                            endif ;?>
+
+                            "><?php echo $custom_cat_value->name ;?></a></li>
+
+                    <?php endforeach;
+                endif; ?>
+        
     </ul>
 
 </section>
