@@ -3,9 +3,12 @@
         <div class="container text-center p-5">
             <h1>How can we help?</h1>
             
-            <form role = "search" class="form-inline justify-content-center pt-3">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn my-2 my-sm-0" type="submit">Search</button>
+            <form role = "search" method = "get" action = "<?php echo home_url( '/' ); ?>" class="form-inline justify-content-center pt-3">
+                
+                <input class="form-control mr-sm-2" type="search" placeholder="Search"   aria-label="Search"
+                value="<?php echo get_search_query() ?>" name="s"
+                title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>">
+                <button class="btn my-2 my-sm-0" type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>">Search</button>
             </form> 
             
         </div>
