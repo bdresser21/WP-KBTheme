@@ -178,6 +178,10 @@ li.page_item {
   .top-nav li {
     padding-bottom: 1.8rem;
   }
+  .heading-underline {
+    border-bottom: 6px solid #153397;
+    width: 70%;
+  }
   /*----------Article Template----------*/
   .article-content #article-categories-list h5, .article-content #article-categories-list ul {
     text-align: center;

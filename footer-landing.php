@@ -1,4 +1,4 @@
-    <footer class = "footer container text-right pb-5">
+    <footer class = "footer container text-center pb-5">
         <p>&copy; <?php echo get_bloginfo( 'name' );?><?php echo comicpress_copyright(); ?>. Powered by Awesome KB.</p>
     </footer>
 

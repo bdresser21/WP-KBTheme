@@ -45,7 +45,7 @@ function display_all_custom_posts(){
 	while ($custom_query->have_posts()) : $custom_query->the_post() ;
 
 	?>
-	<li class = "article-item pt-4 pb-4"><a href = "<?php the_permalink();?>"><?php the_title();?></a></li>
+	<li class = "article-item pt-4"><a href = "<?php the_permalink();?>"><?php the_title();?></a></li>
 	<?php endwhile; 
 }
 
@@ -84,7 +84,7 @@ function display_all_posts_by_category(){
    
 		   if( $posts->have_posts() ): ?> 
 		   
-		   <h6><?php echo $term->name; ?></h6>
+		   <h6 class = "pt-5"><?php echo $term->name; ?></h6>
 		   
 		   <?php while( $posts->have_posts() ) : $posts->the_post(); ?>
    

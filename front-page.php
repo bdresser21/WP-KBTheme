@@ -66,16 +66,8 @@
                         </div>
                       </div>
                   <?php endforeach;?>
-                 
-
-
-
-
-
-
-
            
               </div>
         </section>
     </section>
-<?php get_footer(); ?>
+<?php get_footer('landing'); ?>

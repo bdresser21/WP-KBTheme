@@ -1,7 +1,7 @@
 
 <?php 
 
-/*Template Name: Posts by Category*/
+/*Template Name: Archive - Posts by Category*/
 
 get_header(); ?>
 

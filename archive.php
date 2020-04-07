@@ -1,7 +1,6 @@
-
 <?php 
 
-/*Template Name: Posts by Category*/
+/*Template Name: Archive - Posts by Category*/
 
 get_header(); ?>
 
@@ -19,7 +18,9 @@ get_header(); ?>
                         <ul class = "article-category-slug-list mt-3">
             <?php
                 $post_type = 'kb-article';
-
+                if( is_page($page = 'Categories') ) :
+                    display_all_custom_posts();
+                endif;
                 // Get all the taxonomies for this post type
                 if( is_page($page = 'Administrative') )  :
                     

@@ -2,7 +2,7 @@
 <section id = "content-area" class = "contact-content container pt-4 pb-4 ">
         <!--Left column on large screens ; one col on small screens-->
         <div id = "both-columns" class = "row pt-3 pb-3">
-            <?php get_sidebar(); ?>
+            <?php get_sidebar('page'); ?>
 
             <!--Right column on large screens ; 1 column on small screens-->
             <article id = "article-category-slug" class="col-md-9">  
@@ -30,7 +30,7 @@
                                 <label for="exampleFormControlFile1">Upload file</label>
                                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
                             </div>
-                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-3 mb-3">Submit</button>
                         </form>
 
     

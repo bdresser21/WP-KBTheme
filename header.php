@@ -15,6 +15,8 @@
     <?php wp_head();?>
 </head>
 <body class = "bg-light">
+
+
     <nav class = "p-1 navbar navbar-dark navbar-expand-lg navbar-default" role = "navigation">
         <div class = "container">
             
@@ -23,10 +25,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class = "menu navbar-nav nav text-center p-4">
-                    <li class = "nav-item"><a class = "nav-link" href = "#">Help Desk<span class="sr-only">(current)</span></a></li>
-                    <li class = "nav-item"><a class = "nav-link" href = "#">Products</a></li>
-                    <li class = "nav-item"><a class = "nav-link" href = "#">Contact</a></li>
+                <ul class = "menu navbar-nav nav text-center pt-4 pb-4">
+                    <?php 
+                    wp_nav_menu(
+
+                        array(
+
+                            'theme_location' => 'top-menu',
+                            'menu_class' => 'top-nav'
+                        )
+                    );
+                    ?>
+                    <!--<li class = "nav-item"><a class = "nav-link" href = "#"><span class="sr-only">(current)</span></a></li>
+                    <li class = "nav-item"><a class = "nav-link" href = "#"></a></li>
+                    <li class = "nav-item"><a class = "nav-link" href = "#"></a></li>-->
                 </ul>
             </div>
         </div>
